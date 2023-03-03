@@ -1,8 +1,4 @@
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <stdio.h>
-#include "globals.h"
+#include "other_functions.h"
 
 char* concatenate_strings(char* s1, char* s2)
 {

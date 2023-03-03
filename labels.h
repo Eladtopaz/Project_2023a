@@ -1,11 +1,5 @@
 
 
-/*
- * TODO: write here.
- */
-int check_if_label(char* current_line, int index_of_next_word, char* current_label);
-
-
 
 typedef struct label_list{
     char* title;

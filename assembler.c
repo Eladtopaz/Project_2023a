@@ -1,7 +1,7 @@
 /* includes and defines */
 #include "pre_assembler.h"
-#include "other_functions.h"
 #include "first_pass.h"
+#include "second_pass.h"
 
 /*
  * TODO: if user used a big number, bigger than 12-bit, error?
@@ -36,11 +36,14 @@ int main(int argc, char *argv[])
                 temp = current_label_list;
                 while(temp != NULL) /* Enter only if table isn't empty */
                 {
-                    printf("Label: %s ic_pos: %d\n", get_title(temp), get_pos(temp));
+                    printf("Label: %s ic_pos: %lo\n", get_title(temp), get_pos(temp));
                     temp = temp->next;
                 }
+                second_pass(current_label_list, argv[i]);
+
             }
             else
+            /* What if it is a file without labels? */
             {
                 printf("\n%s%s\n", "[ERROR] in file: ", argv[i]);
             }

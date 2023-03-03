@@ -1,7 +1,4 @@
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "labels.h"
+#include "other_functions.h"
 
 /*
  * TODO: write here

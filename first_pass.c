@@ -1,7 +1,5 @@
-#include <ctype.h>
-#include "other_functions.h"
 #include "first_pass.h"
-#include "globals.h"
+
 
 int get_addressing_type_number(char* instruction , char* next_word)
 {
@@ -57,7 +55,7 @@ int get_number_of_output_lines(char* line,  int index, int is_label)
     char* current_instruction, *next_word;
     int instruction;
     int number_of_words = 0; /* Default for ENTRY and EXTERN lines. */
-    int addressing_type_number = -1;
+    int addressing_type_number;
 
 
     current_instruction = strtok(line, " ");
@@ -145,7 +143,6 @@ label_list* first_pass(char* file)
                 printf("%s","[ERROR] Wrong addressing method!");
                 return NULL;
             }
-            printf("%d\n",number_of_words);
 
             ic+= number_of_words; /* Next line */
         }

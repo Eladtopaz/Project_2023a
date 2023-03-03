@@ -5,7 +5,7 @@
 #define EXTERN 2
 #define ENTRY 3
 #define STRING 4
-#define ERROR -1
+#define ERROR (-1)
 
 /* Opcodes */
 typedef enum opcode {

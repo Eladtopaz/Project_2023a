@@ -1,8 +1,3 @@
-#include <stdlib.h>
-#include "labels.h"
-#include "globals.h"
-#include <string.h>
-#include <ctype.h>
 #include "other_functions.h"
 
 int is_in_table(char* label,label_list* head)
@@ -39,25 +34,13 @@ char* check_valid_label(char* label,label_list* head)
     return NULL;
 }
 
-int check_if_label(char* line, int index, char* label)
-{
-    int i, j = 0;
-
-    for(i=index; line[i] && line[i] != ':' && line[i] != ' ' && line[i] != '\n' && i < MAX_LINE_LENGTH; i++, j++)
-        label[j] = line[i];
-
-    label[j] = '\0'; /* End of word */
-    if(line[i] != ':')
-        return 0; /* Not Label */
-
-    return 1; /* Label */
-}
-
-
 label_list* create_label(char* title, long ic_pos)
 {
+    char* temp_title;
     label_list* temp = malloc(sizeof(struct label_list));
-    strcpy(temp->title, title);
+    temp_title = malloc(sizeof(char) * strlen(title));
+    strcpy(temp_title, title);
+    temp->title = temp_title;
     temp->ic_pos = ic_pos;
     temp->next = NULL;
     return temp;
