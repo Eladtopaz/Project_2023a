@@ -17,7 +17,7 @@ char* pre_assembler(char* file)
     char *temp_macro, *temp_name, *temp_content;
     char *first_word_in_line, current_line[MAX_LINE_LENGTH], temp_line[MAX_LINE_LENGTH];
     int line_to_file, is_mcr = OFF;
-    macro_list *head, *temp_node;
+    macro_list *head = NULL, *temp_node;
 
     FILE *input_file, *output_file;
 
@@ -32,7 +32,6 @@ char* pre_assembler(char* file)
     /* Initialize the current content string */
     current_content = (char *)malloc(1);
 
-    head = NULL;
     if (input_file)
     {
         while((fgets(current_line, MAX_LINE_LENGTH, input_file)))
@@ -111,7 +110,9 @@ char* pre_assembler(char* file)
     free(file_name);
     free(pre_assembler_output_file);
     free(current_content);
-    free_head(head);
+
+    if(head) /* Make sure there was a macro and not free NULL. */
+        free_head(head);
 
     if (error)
         return error;

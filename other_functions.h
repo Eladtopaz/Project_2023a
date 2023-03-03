@@ -17,3 +17,14 @@ char* concatenate_strings(char* s1, char* s2);
  * it frees s1 before it finish.
  */
 char* concatenate_strings_with_free(char* s1, char* s2);
+
+/*
+ * TODO: Write here
+ */
+char* num_to_binary(int num);
+void skip_white_in_line(char* line, int* index);
+int get_instruction(char* temp_instruction);
+char* get_word(char* line, int* index);
+int count_comma(char* word);
+int is_alphanumeric_str(char *s);
+int is_reserved_word(char *name);

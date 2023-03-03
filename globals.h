@@ -1,6 +1,11 @@
 #define MAX_LINE_LENGTH 82 /* Plus 2 for \n\0 in book and forum said max 80 for line */
 #define ON 1              /* ON - is mcr/label on */
 #define OFF 0             /* OFF - is mcr/label off */
+#define DATA 1
+#define EXTERN 2
+#define ENTRY 3
+#define STRING 4
+#define ERROR -1
 
 /* Opcodes */
 typedef enum opcode {
